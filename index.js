@@ -1,12 +1,14 @@
 const http = require("http");
 
 const PORT = 3000;
+require('dotenv').config();
 
 http.createServer((req, res) => {
 
     const mailer = require("@sendgrid/mail");
 
-    mailer.setApiKey("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");
+    mailer.setApiKey(process.env.SENDGRID_API_KEY)
+
 
     mailer.send({
 
